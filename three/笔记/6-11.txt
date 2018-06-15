@@ -1,0 +1,195 @@
+
+
+陈健 chen00jian 
+
+---------------------------------------------------
+Node.js
+
+https://nodejs.org/en/
+
+https://nodejs.org/zh-cn/
+
+
+node  全栈 后台语言
+
+java  php  .net
+
+
+
+node文件的命名： 千万不要node.js  nodejs.js
+
+
+验证node 版本
+
+node -v
+node --version
+
+
+npm - node package manager 包管理器
+
+npm -v
+npm --version
+npm -version
+npm --v
+
+-------------------------------------------------
+
+如何进入到指定的目录
+
+1、shift + 右键  在此次打开命令窗口
+2、开始 cmd
+    a、cd D:\code\20180611
+       d:
+       
+    b、d:
+       cd D:\code\20180611
+3、直接在打开的窗口路径里面输入 cmd
+
+-------------------------------------------------
+
+      window    linux
+清屏   cls       clear
+查看文件 dir     ls
+                 ls -l 列表显示文件
+                 ls -a 显示隐藏文件   
+                 ls -la
+创建文件
+
+
+window
+
+cd . > xxx.txt
+
+echo  xxx > xxx.txt   新建、覆盖
+echo  xxx >> xxx.txt  追加
+
+
+Linux   
+
+echo  xxx > xxx.txt   新建、覆盖
+echo  xxx >> xxx.txt  追加
+
+touch xxx.txt
+
+
+
+ 
+创建/删除目录：
+
+window/linux:mkdir、rmdir
+
+md   rd window
+
+删除目录  必须是空目录才可以删除
+
+
+强制删除：
+
+Linux:rm -rf xxx
+
+-r 递归删除
+-f 强制删除 force
+
+window:
+
+rd /s/q aaa
+
+/s 递归删除
+/q 静默删除  不要提示
+
+-------------------------------------------------
+
+pwd 查看当前所属的目录
+
+cd ~ 回到用户根目录
+-------------------------------------------------
+
+状态码
+
+1xx  正在处理请求
+2xx  成功
+3xx  重定向  —— 304缓存
+4xx  错误 —— 前端错误 资源没找404
+5xx  错误 —— 服务器错误 500 503
+
+-------------------------------------------------
+
+ajax: Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML）
+
+-------------------------------------------------
+
+1、文件模块  fs  ——一般都用异步
+
+文件读取
+
+fs.readFile(文件名[，编码]，成功失败的回调函数(err,data){
+
+})  异步
+
+fs.readFileSync(文件名[，编码]) 同步
+
+
+-------------------------------------------------
+
+服务器:
+
+1、引入模块
+var http = require("http");
+var fs = require("fs");
+
+
+2、创建服务
+var server = http.createServer(function(req,res){
+
+		//读文件
+		fs.readFile(.....);
+
+});
+
+3、监听端口
+server.listen(9000);
+
+
+-------------------------------------------------
+
+user.html  ---> 用户登录 注册  ajax  jQuery
+
+
+接口
+
+1 登录
+
+/login?username=xxx&password=xxx  
+
+{success:0/1,msg:描述信息}
+
+2 注册
+
+
+/reg?username=xxx&password=xxx  
+
+{success:0/1,msg:描述信息}
+
+
+-------------------------------------------------
+
+
+请求方式：
+get   数据在地址栏上   不安全          数据小32k         快
+ 
+post 数据不在地址栏上  相对安全  https 1G服务器限制 无限 相对慢
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

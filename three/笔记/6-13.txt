@@ -1,0 +1,299 @@
+
+mysql
+
+npm i mysql
+var mysql = require("mysql");
+
+var db = mysql.createConnection({host,user,password,database});
+
+db.query(sql,fn(err,data){...});
+
+
+npm
+
+安装 更新 删除
+
+npm i/update/un 模块名称@xxx  --save -S  --save-dev -D  -g   --global
+
+cnpm
+
+nrm ls
+nrm test
+nrm use
+
+发包：
+必须有账号、工程（工程文件）、name必须唯一
+npm publish 、unpublish -f
+
+
+------------------------------------------------------------
+
+模块：
+
+querystring ==》 qs  npm i qs
+
+qs=>parse/stringify
+
+
+qs.parse(str[, sep[, eq[, options]]])   字符串转对象
+qs.stringify(obj[, sep[, eq[, options]]]) 对象转字符串
+
+qs.escape(str)   编码
+qs.unescape(str) 解码
+------------------------------------------------------------
+
+url
+
+
+http://www.baidu.com:80/index.html?username=aaa#page3
+
+http://  www.baidu.com   :80   /index.html    ?username=aaa   #page3
+协议      域名           端口    资源地址       数据           哈希hash
+
+location  <--- url.parse(url);
+
+Url {
+  protocol: 'http:',
+  slashes: true,
+  auth: null,
+  host: 'www.baidu.com:80',
+  port: '80',
+  hostname: 'www.baidu.com',
+  hash: '#page3',
+  search: '?username=aaa',
+  query: 'username=aaa',
+  pathname: '/index.html',
+  path: '/index.html?username=aaa',
+  href: 'http://www.baidu.com:80/index.html?username=aaa#page3'
+ }
+ 
+ URL {
+  href: 'http://www.baidu.com/index.html?username=aaa#page3',
+  origin: 'http://www.baidu.com',
+  protocol: 'http:',
+  username: '',
+  password: '',
+  host: 'www.baidu.com',
+  hostname: 'www.baidu.com',
+  port: '',
+  pathname: '/index.html',
+  search: '?username=aaa',
+  searchParams: URLSearchParams { 'username' => 'aaa' },
+  hash: '#page3' }
+
+url.parse(url);  --> urlObj
+url.format(urlObj); urlOjb -->url
+
+-----------------------------------
+modUrl:最重要的三个东西
+
+解析url地址
+parse
+URL   new modUrl.URL(url); <==>modUrl.parse(url,true)
+
+拼接地址上数据  name=xxx&name=xxx
+URLSearchParams:
+    var p = new URLSearchParams();
+    p.append/set(name,value);
+    p.append(name,value);
+    p ==> name=xxx&name=xxx
+-----------------------------------
+
+
+path:  解析文件路径
+
+
+window:路径 分隔符  \\  反斜杠    linux /斜杠
+
+path.parse(path)  字符串转对象
+path.format(pathObject)  对象转字符串
+
+{ root: 'D:/',
+  dir: 'D:/code/20180613',
+  base: 'a.txt',
+  ext: '.txt',
+  name: 'a' }
+
+path.basename(path)
+path.dirname(path)
+path.extname(path)
+
+
+--------------------------------------------
+******
+path.join()  路径拼接 返回相对路径
+path.relative() 只有两个参数 from to   from 到to的相对路径 
+path.resolve() 和join一样  返回的是绝对路径
+
+--------------------------------------------
+
+repl - 交互式解释器  没用！—— 面试
+
+--------------------------------------------
+
+Buffer  <Buffer 16进制>
+
+hex:16进制
+
+0x4e00 -- 0x9fa5
+
+"A".charCodeAt(0).toString(16) ==> code
+
+
+for(var i = 0x4e00; i < 0x9fa5; i++){
+
+}
+--------------------------------------------
+
+events (事件)
+
+var EventEmitter = require("events"); 新的写法
+var EventEmitter = require("events").EventEmitter; 老的写法
+
+var ev = new EventEmitter();
+
+订阅 定义事件
+ev.on/once/("事件名"，事件函数);
+
+发布 使用事件
+ev.emit(事件名);
+
+
+on <==>addListener
+off <==> removeListener
+
+off:node10版本才有
+
+--------------------------------------------
+fs  fileSystem文件模块
+
+
+fs模块 基本每个方法都有同步异步方法
+
+读
+fs.readFile(地址，编码，回调); 异步
+fs.readFileSync(地址，编码)  同步
+
+
+写
+fs.writeFile(file, data[, options], callback)
+fs.writeFileSync(file, data[, options])
+
+
+拷贝
+fs.copyFile(src, target, callback)
+fs.copyFileSync(src, target)
+
+追加文件内容
+fs.appendFile(file, data[, options], callback)
+fs.appendFileSync(file, data[, options])
+
+删除文件
+
+fs.unlink(path, callback)
+fs.unlinkSync(path)
+
+创建文件夹
+fs.mkdir(path, callback)
+fs.mkdirSync(path, callback)
+
+删除文件夹
+fs.rmdir(path, callback)
+fs.rmdirSync(path, callback)
+
+
+----------------------------------
+作业：删除文件夹 code  递归
+
+----------------------------------
+
+读取目录
+fs.readdir(path, callback)
+fs.readdirSync(path)
+
+文件的状态
+
+文件  目录
+fs.stat(path, callback)
+
+
+stats.isDirectory()
+stats.isFile()
+
+判断文件和文件夹是否存在
+
+fs.exists(path, callback(exists))废弃
+fs.access(path, callback(err))
+
+
+监听
+实时刷新
+fs.watch(filename,fn(eventType, filename))
+
+有延迟
+fs.watchFile(filename,fn(curr, prev))
+
+-------------------------------------------------------
+
+重命名、移动文件
+
+fs.rename(oldPath, newPath, callback)
+fs.renameSync(oldPath, newPath)
+
+-------------------------------------------------------
+stream流
+
+输入流 输出流
+
+var rs = fs.createReadStream("a.txt");
+var ws = fs.createWriteStream("b.txt");
+
+
+rs.pipe(ws);
+
+ 
+rs.on("data",function(data){
+	 ws.write(data);
+});
+
+rs.on("end",function(){
+	读完了
+	ws.end(function(){
+		写完了
+	});
+});
+
+
+rs.pipe(res);
+rs.on("error",function(){
+	res.end("404");
+})
+
+//gzip压缩
+var zlib = require('zlib');
+
+res.writeHead(200, { 'Content-Encoding': 'gzip' });
+rs.pipe(zlib.createGzip()).pipe(res);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

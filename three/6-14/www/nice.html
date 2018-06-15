@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    111
+    <input type="button" value="点击有惊喜">
+    <ul>
+
+    </ul>
+</body>
+</html>
+<script>
+    $(function(){
+        $("input").on("click",function(){
+            $.ajax({
+                url:"/nice",
+                type:"get",
+                dataType:"json", 
+                success:function(res){
+                  console.log(res)
+                    res.forEach((val,index) => {
+                        console.log(val);
+                        
+                        var str=`<li>
+                            <h3>${val.title}</h3>
+                            <img src="${val.href}"/>
+                            </li>`;
+                        $("ul").append(str);
+                    });
+                }              
+            })
+        })
+    })
+</script>

@@ -1,0 +1,12 @@
+{
+  "name": "firsttest222",
+  "version": "1.0.1",
+  "description": "jquery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["firsttest222"],
+  "author": "alien5",
+  "license": "ISC"
+}

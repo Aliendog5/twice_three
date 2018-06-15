@@ -1,0 +1,209 @@
+
+
+
+
+命令
+
+node服务  模块  http  fs  url querystring
+
+
+get post
+
+var str = "";
+req.on("data",function(data){
+	str+=data; //post数据
+});
+
+req.on("end",function(){
+	str; //转换json对象
+	var POST = qs.parse(str);
+	
+	var urlObj = modUrl.parse(url,true);// pathname query=> GET
+	var url = urlObj.pathname;
+	var GET = urlObj.query;
+	
+	//数据合并
+	var params = req.method == "GET"? GET:POST;
+	
+	
+});
+
+
+------------------------------------------------------------
+
+node操纵数据  
+
+myslq模块
+
+npm install mysql
+
+
+select * from user_table where username="aaa" and password="123"
+
+
+------------------------------------------------------------
+
+npm
+
+npm install vue mysql jquery 安装最新版本
+npm install jquery@1.7.2
+
+npm uninstall jquery@1.7.2
+
+update 一般不用
+npm update jquery@1.7.2
+
+
+npm search jquery
+npm info jquery  
+npm home jquery
+
+
+安装分2种： 1局部 2全局
+
+
+
+npm install vue --global
+npm install vue -g        g -- global
+
+
+查找包：
+
+npm list  简写(ls)  局部
+
+npm list  简写(ls) -g 查找全包
+
+
+参数: --save  --save-dev
+
+
+依赖:
+dependencies  --save 简写 -S  jquery mysql
+
+devDependencies --save-dev 简写 -D gulp  grunt
+
+
+两个 安装 卸载
+
+npm i -S vue
+
+npm un -S vue
+
+
+工程文件:package.json
+
+创建工程文件：
+1、手工创建 —— 不推荐
+2、命令  npm init     npm init -y
+
+npm install jquery --save
+npm install mysql --save-dev
+
+
+--------------------------------------------
+
+
+淘宝镜像 cnpm
+
+npm i -g cnpm --registry=https://registry.npm.taobao.org
+
+
+nrm: 管理镜像源
+
+npm i -g nrm
+
+nrm ls  列举所有的镜像源
+nrm test 测试所有的镜像源速度
+
+nrm use cnpm
+
+--------------------------------------------
+
+npm cnpm yarn bower 下包
+
+cnpm i -g yarn      https://yarn.bootcss.com/docs/cli/
+
+cnpm i -g bower     https://bower.io/
+
+
+npm ls -g --depth=0
+
+--------------------------------------------
+
+包 —— 模块
+
+模块:
+1 系统模块 http fs  querystring url
+2 第三方模块 jquey vue  mysql  --> node_modules
+3 自定义模块 —— 自己写         --> node_modules
+
+
+模块：
+require 引入模块
+exprots 导出模块 一个一个导
+module 导出模块 批量导出
+
+默认情况 module.exports == exprots  true
+不能共存 共存存在问题：引用地址变了
+module.exports权重更高==》module.exports
+
+使用自定义模块：require("./自定义模块名称[.js]");
+
+不想要 ./   require("自定义模块名称[.js]"); 
+
+把自己的模块放到  node_modules 里面！
+
+-----------------------------------------------------------
+
+
+发布自己包：
+
+1、https://www.npmjs.com/ 注册账号
+2、需要自己新建一个工程
+
+npm init -y
+
+注意：
+1、name必须唯一
+2、version 保证更新之前都进行修改
+3、main入口文件  默认index.js
+
+发包：
+1、登录 npm login  
+2、npm publish
+
+ 撤销包
+   npm unpublish  删除不完全  —— 需要发邮件给npm官网
+   
+** 源 必须是 npm源 不能使用cnpm源
+
+用户使用 下载：
+npm i str2json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

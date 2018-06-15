@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+</head>
+
+<body>
+    <form action="/login" method="GET">
+    <!-- <form action="/login" method="POST"> -->
+        <input type="text" name="username" value="aaa">
+        <input type="text" name="password" value="123">
+        <input type="submit" id="btnLogin" value="登录">
+        <!-- <input type="submit" id="btnReg" value="注册"> -->
+    </form>
+</body>
+
+</html>
+<script>
+    // $(function(){
+    //     $("#btnLogin").on("click",function(){
+    //         $.ajax({
+    //             url:"/login",
+    //             data:{
+    //                 username:$("#username").val(),
+    //                 password:$("#password").val()
+    //             }
+    //         }).then(function(res){
+    //             console.log(JSON.parse(res))
+    //             alert(res.msg);
+    //         })
+    //     })
+    //     $("#btnReg").on("click",function(){
+    //         $.ajax({
+    //             url:"/reg",
+    //             data:{
+    //                 username:$("#username").val(),
+    //                 password:$("#password").val()
+    //             },
+    //             success:function(res){
+    //                 console.log(res)
+    //                 alert(res.msg);
+    //             }
+    //         })
+    //     })
+    // })
+</script>
